@@ -10,10 +10,29 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ['Poppins', 'sans-serif'],
+              }
+            }
+          }
+        }
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" 
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" 
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/script.js" defer></script>
     <title>QR Code Generator</title>
 </head>
 <body>
-    
+    <header class="bg-blue-500 p-4 mb-10">
+        <div class="max-w-5xl" m-auto>
+
+        </div>
+    </header>
 </body>
 </html>
