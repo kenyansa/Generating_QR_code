@@ -29,7 +29,7 @@ const generateQRCode = (url, size)=>{
         text: url,
         width: size,
         height: size,
-        colorDark: "blue",
+        colorDark: "black",
     })
 }
 
@@ -50,10 +50,12 @@ const clearUI = ()=>{
 
 const createSaveBtn = (saveUrl)=>{
     const generatedElement = document.getElementById('generated');
+    //before appending the link element, the code checks if the generated element exists and only then proceeds with appending the link. 
+    //It should prevent the "Cannot read properties of null" error when the generated element is not found.
     if (generatedElement) {
         const link = document.createElement('a');
         link.id = 'save-link';
-        link.classList = 'bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 rounded w-1/3 m-auto my-5'
+        link.classList = 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 rounded w-1/3 m-auto my-5'
         link.href = saveUrl;
         link.download = 'qrcode.png';
         link.innerHTML = 'Save Image';
