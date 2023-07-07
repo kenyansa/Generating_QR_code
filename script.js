@@ -1,6 +1,13 @@
 const form = document.getElementById("generate_form");
 const qrCode = document.getElementById("qrcode");
 
+// This function is triggered when the form is submitted. It prevents the default form submission behavior, clears the user interface (UI), 
+// retrieves the URL and size values entered by the user, and performs the following steps:
+// 1. If the URL is empty, it displays an alert message asking the user to enter a URL.
+// 2. Otherwise, it shows a spinner (loading indicator) by calling the showSpinner function.
+// 3. After a delay of 1 second (1000 milliseconds), it hides the spinner by calling the hideSpinner function.
+// 4. Then, it calls the generateQRCode function, passing the URL and size values.
+// 5. After a short delay of 50 milliseconds, it retrieves the source URL of the generated QR code image, creates a save button, and appends it to the generated element.
 const onGenerateSubmit = (e)=>{
     e.preventDefault();
     clearUI();
@@ -24,6 +31,8 @@ const onGenerateSubmit = (e)=>{
     }
 }
 
+// This function creates a new QRCode instance using the 'QRCode' library. 
+// It takes the qrcode element and generates a QR code based on the provided URL and size.
 const generateQRCode = (url, size)=>{
     const qrcode = new QRCode('qrcode', {
         text: url,
@@ -40,6 +49,8 @@ const hideSpinner = () =>{
     document.getElementById("spinner").style.display = "none"
 }
 
+// This function clears the QR code element (qrCode) by setting its inner HTML to an empty string. 
+// It also removes the save link ('saveLink') if it exists.
 const clearUI = ()=>{
     qrCode.innerHTML = "";
     const saveLink = document.getElementById('save-link');
