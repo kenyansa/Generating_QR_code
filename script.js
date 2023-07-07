@@ -15,6 +15,11 @@ const onGenerateSubmit = (e)=>{
         setTimeout(()=>{
             hideSpinner();
             generateQRCode(url, size);
+
+            setTimeout(() => {
+                const saveUrl = qrCode.querySelector('img').src;
+                createSaveBtn(saveUrl);
+            }, 50);
         }, 1000)
     }
 }
@@ -37,16 +42,24 @@ const hideSpinner = () =>{
 
 const clearUI = ()=>{
     qrCode.innerHTML = "";
+    const saveLink = document.getElementById('save-link');
+    if(saveLink){
+        saveLink.remove();
+    }
 };
 
 const createSaveBtn = (saveUrl)=>{
-    const link = document.createElement('a');
-    link.id = 'save-link';
-    link.classList = 'bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 rounded w-1/3 m-auto my-5'
-    link.href = saveUrl;
-    link.download = 'qrcode';
-    link.innerHTML = 'Save Image';
-    document.getElementById('generated');
+    const generatedElement = document.getElementById('generated');
+    if (generatedElement) {
+        const link = document.createElement('a');
+        link.id = 'save-link';
+        link.classList = 'bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 rounded w-1/3 m-auto my-5'
+        link.href = saveUrl;
+        link.download = 'qrcode.png';
+        link.innerHTML = 'Save Image';
+        document.getElementById('generated').appendChild(link);
+    }
+   
 }
 
 hideSpinner();

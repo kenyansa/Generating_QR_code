@@ -78,15 +78,14 @@
            </div> 
         </div>
         <!-- Where the Generated QR Code will be inserted -->
-        <div class="max-w-5xl m-auto flex flex-col text-center align-center justify-center mt-20">
+        <div id="generated"
+        class="max-w-5xl m-auto flex flex-col text-center align-center justify-center mt-20">
             <!-- spinner section, code copied from docs for Tailwind CSS Spinner -->
             <div id="spinner" class="flex items-center justify-center h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent motion-reduce:animate-spin_1.5s_linear_infinite" role="status">
                 <span class="absolute inset-0 flex items-center justify-center">
                     Loading...
                 </span>
             </div>
-            
-            
             <!-- Output for QR Code -->
             <div id="qrcode" class="m-auto"></div>
         </div>
